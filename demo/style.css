@@ -12,20 +12,35 @@ html, body {
 
 h2 {
   font-size: 3rem;
-  margin: 1rem 0;
+  margin: 0 0 1rem 0;
 }
 
-p {
+p, a {
   font-size: 1.6rem;
-  margin: 1rem 0;
+  margin: 0;
+  color: inherit;
 }
 
 section {
+  display: flex;
+  margin: 0 auto;
 }
 
-  section:nth-child(even) .wrapper {
-    flex-direction: row-reverse;
+  section.chameleon-dark {
+    color: #fff;
   }
+
+  section.chameleon-light {
+    color: #222;
+  }
+
+  section:nth-child(odd) {
+    flex-direction: row;
+  } 
+
+  section:nth-child(even) {
+    flex-direction: row-reverse;
+  } 
 
   section article {
     flex: 1 1 auto;
@@ -47,9 +62,15 @@ section {
     width: 100%;
   }
 
-.wrapper {
-  display: flex;
-  margin: 0 auto;
-  max-width: 1600px;
-  padding: 0 4rem;
-}
+  .palette {
+    margin-top: 2rem;
+  }
+
+  .color-box {
+    width: 150px;
+    height: 50px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+  }
