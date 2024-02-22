@@ -1,18 +1,32 @@
 {
   "name": "hero-chameleon",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Dynamically change css classes depending on image average color.",
-  "main": "hero-chameleon.js",
+  "type": "module",
+  "main": "dist/hero-chameleon.cjs.js",
+  "browser": "dist/hero-chameleon.js",
+  "targets": {
+    "browser": {
+      "context": "browser",
+      "outputFormat": "esmodule",
+      "includeNodeModules": true
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel hero-chameleon.js",
+    "build": "parcel build hero-chameleon.js",
+    "parcel-clear": "rm -rf .parcel-cache dist"
   },
   "author": "lintmycode",
   "license": "ISC",
-  "dependencies": {
-    "colorthief": "^2.4.0"
-  },
   "files": [
     "package.json",
     "hero-chameleon.js"
-  ]
+  ],
+  "dependencies": {
+    "colorthief": "^2.4.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.11.0"
+  }
 }
