@@ -1,4 +1,4 @@
-import Chameleon from "./node_modules/hero-chameleon/hero-chameleon.js"
+import Chameleon from "../hero-chameleon.js"
 
 // hero section
 const chameleon = new Chameleon(
