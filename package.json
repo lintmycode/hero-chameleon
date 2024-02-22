@@ -1,6 +1,6 @@
 {
   "name": "hero-chameleon",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Dynamically change css classes depending on image average color.",
   "type": "module",
   "main": "dist/hero-chameleon.cjs.js",
