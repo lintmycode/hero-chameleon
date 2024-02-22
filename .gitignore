@@ -1,3 +1,10 @@
 .DS_Store
 package-lock.json
 node_modules/
+.parcel-cache/95f1f84878da127d-BundleGraph-0
+.parcel-cache/141f870c8b96346f-RequestGraph-0
+.parcel-cache/36335c51c4903495-AssetGraph-0
+.parcel-cache/ad172c083d88d1e6-AssetGraph-0
+.parcel-cache/data.mdb
+.parcel-cache/f455d01a678d827a.txt
+.parcel-cache/lock.mdb
