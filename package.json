@@ -4,7 +4,7 @@
   "description": "Dynamically change css classes depending on image average color.",
   "type": "module",
   "main": "dist/hero-chameleon.cjs.js",
-  "browser": "dist/hero-chameleon.js",
+  "browser": "dist/hero-chameleon.bundle.js",
   "targets": {
     "browser": {
       "context": "browser",
@@ -16,7 +16,7 @@
     "start": "parcel hero-chameleon.js",
     "build": "parcel build hero-chameleon.js",
     "parcel-clear": "rm -rf .parcel-cache dist",
-    "demo": "parcel build hero-chameleon.js && cp dist/hero-chameleon.js docs/hero-chameleon.js"
+    "build-demo": "parcel build hero-chameleon.js && cp dist/hero-chameleon.bundle.js docs/hero-chameleon.bundle.js"
   },
   "author": "lintmycode",
   "license": "ISC",

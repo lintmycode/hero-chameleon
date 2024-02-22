@@ -1,4 +1,4 @@
-import Chameleon from "./hero-chameleon.js"
+import Chameleon from "./hero-chameleon.bundle.js"
 
 // hero section
 const chameleon = new Chameleon(
