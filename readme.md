@@ -17,7 +17,7 @@ npm install hero-chameleon
 ## Usage
 Import the Chameleon class.
 ```
-import Chameleon from "./node_modules/hero-chameleon/hero-chameleon.js"
+import Chameleon from "./node_modules/hero-chameleon/dist/hero-chameleon.bundle.js"
 ```
 
 Create a Chameleon instance for `.hero` section.
