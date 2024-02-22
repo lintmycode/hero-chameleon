@@ -87,4 +87,32 @@ article {
   article aside img {
     height: 100%;
     width: 100%;
+    object-fit: cover;
   }
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 3rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+
+  .hero {
+    padding: 2rem;
+  }
+
+  article:nth-child(odd), 
+  article:nth-child(even) {
+    flex-direction: column;
+  }
+
+  article main {
+    padding: 2rem;
+  }
+
+  article aside {
+    width: 100%;
+  }
+}
