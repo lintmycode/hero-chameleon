@@ -1,7 +1,7 @@
 # Hero Chameleon
 Simple package to use the color palette from an image to apply contrast, classes and styles to content.
 
-See examples [here](https://githubraw.com/lintmycode/hero-chameleon/main/demo/index.html).
+See examples [here](https://lintmycode.github.io/hero-chameleon/).
 
 Github [here](https://github.com/lintmycode/hero-chameleon).
 
