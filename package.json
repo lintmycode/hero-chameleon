@@ -15,8 +15,7 @@
   "scripts": {
     "start": "parcel hero-chameleon.js",
     "build": "parcel build hero-chameleon.js",
-    "parcel-clear": "rm -rf .parcel-cache dist",
-    "demo": "parcel build hero-chameleon.js && cp dist/hero-chameleon.js demo"
+    "parcel-clear": "rm -rf .parcel-cache dist"
   },
   "author": "lintmycode",
   "license": "ISC",
