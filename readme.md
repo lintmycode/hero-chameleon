@@ -1,9 +1,11 @@
 # Hero Chameleon
 Simple package to use the color palette from an image to apply contrast, classes and styles to content.
 
-See examples [here](https://lintmycode.github.io/hero-chameleon/).
+See examples at [https://lintmycode.github.io/hero-chameleon](https://lintmycode.github.io/hero-chameleon/).
 
-Github [here](https://github.com/lintmycode/hero-chameleon).
+Repo: [https://github.com/lintmycode/hero-chameleon](https://github.com/lintmycode/hero-chameleon).
+
+Package: [https://www.npmjs.com/package/hero-chameleon](https://www.npmjs.com/package/hero-chameleon).
 
 Chameleon uses [Color Thief](https://lokeshdhakar.com/projects/color-thief) to extract colors from the given image.
 
