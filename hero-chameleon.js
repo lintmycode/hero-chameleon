@@ -84,7 +84,8 @@ export default class Chameleon {
       if (this.bg) {
         const overlay = document.createElement("div")
         overlay.style.cssText = `position: absolute; left: 0; top: 0; right: 0; bottom: 0; 
-          background-color: rgb(${this.imageBgColor.join(',')}, .7); z-index: -1; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);`
+          background-color: rgb(${this.imageBgColor.join(',')}, .7); z-index: -1; 
+          backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);`
         overlay.className = "chameleon-overlay"
         this.section.appendChild(overlay)
         this.section.style.position = "relative"
