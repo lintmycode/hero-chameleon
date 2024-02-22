@@ -1,4 +1,4 @@
-import Chameleon from "../dist/hero-chameleon.js"
+import Chameleon from "./hero-chameleon.js"
 
 // hero section
 const chameleon = new Chameleon(
