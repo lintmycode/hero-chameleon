@@ -1,14 +1,18 @@
 {
   "name": "hero-chameleon",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Dynamically change css classes depending on image average color.",
   "main": "hero-chameleon.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "lintmycode",
   "license": "ISC",
   "dependencies": {
     "colorthief": "^2.4.0"
-  }
+  },
+  "files": [
+    "package.json",
+    "hero-chameleon.js"
+  ]
 }
