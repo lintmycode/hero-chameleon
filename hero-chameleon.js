@@ -4,10 +4,20 @@ export default class Chameleon {
   /**
    * 
    * @param {HTMLElement} section 
-   * @param {HTMLElement} image 
+   * @param {HTMLElement} image optional, if omitted will try to find a 
+   * background-image on section
    */
-  constructor (section, image) {
-    this.image = image
+  constructor (section, image = null) {
+
+    if (image) {
+      this.image = image
+      this.bg = false
+    } else {
+      this.image = new Image()
+      this.image.src = section.style.backgroundImage.slice(4, -1).replace(/["']/g, "")
+      this.bg = true
+    }
+
     this.section = section
     this.colorThief = new ColorThief()
     this.imageBgColor = null
@@ -71,7 +81,16 @@ export default class Chameleon {
     }
 
     this.initComplete.then(() => {
-      this.section.style.backgroundColor = `rgb(${this.imageBgColor.join(',')})`
+      if (this.bg) {
+        const overlay = document.createElement("div")
+        overlay.style.cssText = `position: absolute; left: 0; top: 0; right: 0; bottom: 0; 
+          background-color: rgb(${this.imageBgColor.join(',')}, .6); z-index: -1;`
+        overlay.className = "chameleon-overlay"
+        this.section.appendChild(overlay)
+        this.section.style.position = "relative"
+      } else {
+        this.section.style.backgroundColor = `rgb(${this.imageBgColor.join(',')})`
+      }
       this.section.classList.add(`chameleon-${getClass(this.imageBgColor)}`)
     })
   }
@@ -109,4 +128,37 @@ export default class Chameleon {
     const ratio = this.getLuminance(rgb1) + 0.05 / this.getLuminance(rgb2) + 0.05
     return Math.max(ratio, 1 / ratio)
   }
+
+  /**
+   * inject the palatte as colored divs into the section
+   * @param {el} element to inject the palette, defaults to the section
+   */
+  injectPalette = (el = null) => 
+    this.initComplete.then(() => {
+      const palette = document.createElement('div')
+
+      this.imagePalette.forEach(color => {
+        const item = document.createElement('span')
+        item.innerHTML = `rgb(${color.rgb.join(',')})<br>ratio: ${color.ratio}`
+        item.style.cssText = `width: 150px; display: inline-flex;
+          padding: .5rem; align-items: center;
+          background-color: rgb(${color.rgb.join(',')});
+          color: ${this.getLuminance(color.rgb) > 0.4 ? '#222' : '#fff'};`
+        palette.appendChild(item)
+      })
+      
+      const label = document.createElement('label')
+      label.style.cssText = `color: #fff; background-color: #000; padding: .5rem; 
+        display: inline-block;`
+      label.innerText = "Chameleon Palette: "
+      const container = document.createElement('div')
+      container.className = ".chamaleon-palette"
+      container.style.cssText = `margin: 1rem 0; font-size:14px; font-family: monospace;`
+      container.append(label)
+      container.append(palette)
+
+      if (el) this.section.querySelector(el).appendChild(container)
+      else this.section.appendChild(container)
+    })
+    
 }

@@ -1,5 +1,13 @@
 import Chameleon from "./node_modules/hero-chameleon/hero-chameleon.js"
 
+// hero section
+const chameleon = new Chameleon(
+  document.querySelector(".hero")
+)
+chameleon.applyContrast()
+chameleon.applyPalette()
+
+// article blocks
 const demos = [
   { title: "Lorem ipsum", content: "Added contrast and palette from the image.", image: "demo1.jpg", contrast: true, palette: true },
   { title: "Esse culpa elit tempor magna", content: "Added contrast and palette from the image.", image: "demo2.jpg", contrast: true, palette: true },
@@ -10,49 +18,38 @@ const demos = [
 ]
 
 demos.forEach((demo, index) => {
-  const section = document.createElement('section')
-  section.id = "demo-" + index,
-  section.innerHTML = `
-    <article>
+  const article = document.createElement("article")
+  article.id = "demo-" + index,
+  article.className = "text-image"
+  article.innerHTML = `
+    <main>
       <h2>${demo.title}</h2>
       <p>${demo.content}</p>
-      <a href="#">Read more</a>
-      <div class="palette"></div>
-    </article>
+      <a href="#">Link</a>
+    </main>
     <aside>
       <img src="img/${demo.image}">
     </aside>
   `
-  document.querySelector("body").appendChild(section)
+  document.querySelector("body").appendChild(article)
 
-  // initialize Chameleon with the section and the image to process
+  // initialize Chameleon with the article and the image to process
   const chameleon = new Chameleon(
-    section,
-    section.querySelector("img")
+    article,
+    article.querySelector("img")
   )
 
   if (demo.contrast) {
     // add the image's average color as background color 
-    // and a class to the section (chameleon-dark or chameleon-white)
+    // and a class to the article (chameleon-dark or chameleon-white)
     chameleon.applyContrast()
   }
   
   if (demo.palette) {
     // apply palette to the header, p and a elements
     chameleon.applyPalette()
-  
-    // print color palette from the image
-    // sorted by contrast ratio against bg color
-    chameleon.getPalette()
-      .then(palette => {
-        palette.forEach(color => {
-          const span = document.createElement('span')
-          span.className = 'color-box'
-          span.style.backgroundColor = `rgb(${color.rgb.join(',')})`
-          span.style.color = chameleon.getLuminance(color.rgb) > 0.4 ? '#222' : '#fff'
-          span.innerHTML = `rgb(${color.rgb.join(',')})<br>ratio: ${color.ratio}`
-          section.querySelector(".palette").appendChild(span)
-        })
-      })  
   }
+
+  // print palette because its cool
+  chameleon.injectPalette("main")
 })

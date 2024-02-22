@@ -16,8 +16,14 @@ Import the Chameleon class.
 import Chameleon from "./node_modules/hero-chameleon/hero-chameleon.js"
 ```
 
-Create a Chameleon instance for `.hero` section, using `.hero img` to extract the color palette from.
+Create a Chameleon instance for `.hero` section.
 ```
+// this will look for a background image on .hero
+const chameleon = new Chameleon(
+  document.querySelector(".hero")
+)
+
+// this will take an image parameter
 const chameleon = new Chameleon(
   document.querySelector(".hero"),
   document.querySelector(".hero img"),
@@ -42,12 +48,21 @@ chameleon.getPalette()
 ```
 
 ## Auxiliary methods
-Get color luminance
+Get color luminance:
 ```
-getLuminance(rgb)
+chameleon.getLuminance(rgb)
 ```
 
-Get contrast ratio (1-21)
+Get contrast ratio (1-21):
 ```
-getContrastRatio(rgb1, rgb2)
+chameleon.getContrastRatio(rgb1, rgb2)
+```
+Inject palette element in the section for debug/show off:
+
+```
+// directly in the current section
+chameleon.injectPalette()
+
+// or in a child
+chameleon.injectPalette(".section-child")
 ```

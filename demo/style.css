@@ -10,39 +10,66 @@ html, body {
   margin: 0;
 }
 
+h1 {
+  font-size: 4.2rem;
+  margin: 0 0 1rem 0;
+}
+
 h2 {
   font-size: 3rem;
   margin: 0 0 1rem 0;
 }
 
 p, a {
-  font-size: 1.6rem;
-  margin: 0;
+  font-size: 1.4rem;
+  margin: 0 0 1rem 0;
   color: inherit;
 }
 
-section {
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  min-height: 50vh;
+  padding: 2rem 10vw;
+  position: relative;
+  z-index: 0;
+  background-size: cover;
+  background-position: 50%;
+}
+
+  .hero.chameleon-light {
+    color: #000;
+  }
+
+  .hero.chameleon-dark {
+    color: #fff;
+  }
+
+article {
   display: flex;
   margin: 0 auto;
 }
 
-  section.chameleon-dark {
+  article.chameleon-dark {
     color: #fff;
   }
 
-  section.chameleon-light {
+  article.chameleon-light {
     color: #222;
   }
 
-  section:nth-child(odd) {
+  article:nth-child(odd) {
     flex-direction: row;
   } 
 
-  section:nth-child(even) {
+  article:nth-child(even) {
     flex-direction: row-reverse;
   } 
 
-  section article {
+  article main {
     flex: 1 1 auto;
     padding: 4rem;
     display: flex;
@@ -51,26 +78,13 @@ section {
     justify-content: center;
   }
 
-  section aside {
+  article aside {
     flex: 0 0 auto;
     max-width: 50%;
     line-height: 0;
   }
 
-  section aside img {
+  article aside img {
     height: 100%;
     width: 100%;
-  }
-
-  .palette {
-    margin-top: 2rem;
-  }
-
-  .color-box {
-    width: 150px;
-    height: 50px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
   }
